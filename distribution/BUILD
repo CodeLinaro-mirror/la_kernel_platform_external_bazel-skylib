@@ -4,11 +4,8 @@ load("@rules_pkg//:pkg.bzl", "pkg_tar")
 load("distribution.bzl", "remove_internal_only")
 
 package(
-    default_applicable_licenses = ["//:license"],
     default_visibility = ["//visibility:private"],
 )
-
-licenses(["notice"])
 
 remove_internal_only(
     name = "distro_workspace",

@@ -148,7 +148,7 @@ def _impl_function_name(impl):
     impl_name = impl_name.partition("<function ")[-1]
     return impl_name.rpartition(">")[0]
 
-def _make(impl, attrs = {}, doc = "", toolchains = []):
+def _make(impl, attrs = {}, doc = ""):
     """Creates a unit test rule from its implementation function.
 
     Each unit test is defined in an implementation function that must then be
@@ -158,9 +158,6 @@ def _make(impl, attrs = {}, doc = "", toolchains = []):
 
     The optional `attrs` argument can be used to define dependencies for this
     test, in order to form unit tests of rules.
-
-    The optional `toolchains` argument can be used to define toolchain
-    dependencies for this test.
 
     An example of a unit test:
 
@@ -182,8 +179,6 @@ def _make(impl, attrs = {}, doc = "", toolchains = []):
       attrs: An optional dictionary to supplement the attrs passed to the
           unit test's `rule()` constructor.
       doc: A description of the rule that can be extracted by documentation generating tools.
-      toolchains: An optional list to supplement the toolchains passed to
-          the unit test's `rule()` constructor.
 
     Returns:
       A rule definition that should be stored in a global whose name ends in
@@ -198,7 +193,7 @@ def _make(impl, attrs = {}, doc = "", toolchains = []):
         attrs = attrs,
         _skylark_testable = True,
         test = True,
-        toolchains = toolchains + [TOOLCHAIN_TYPE],
+        toolchains = [TOOLCHAIN_TYPE],
     )
 
 _ActionInfo = provider(

@@ -46,4 +46,5 @@ explicitly add delimiters to the key strings, for example "{KEY}" or "@KEY@"."""
             doc = "The destination of the expanded file.",
         ),
     },
+    output_to_genfiles = True,
 )

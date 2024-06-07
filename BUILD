@@ -1,18 +1,8 @@
-load("@rules_license//rules:license.bzl", "license")
 load("//:bzl_library.bzl", "bzl_library")
 
-package(
-    default_applicable_licenses = ["//:license"],
-    default_visibility = ["//visibility:public"],
-)
-
-license(
-    name = "license",
-    package_name = "bazelbuild/bazel_skylib",
-    license_kinds = ["@rules_license//licenses/spdx:Apache-2.0"],
-)
-
 licenses(["notice"])
+
+package(default_visibility = ["//visibility:public"])
 
 # buildifier: disable=skylark-comment
 # gazelle:exclude skylark_library.bzl
@@ -86,8 +76,6 @@ filegroup(
         "WORKSPACE.bzlmod",
         "//lib:distribution",
         "//rules:distribution",
-        "//rules/directory:distribution",
-        "//rules/directory/private:distribution",
         "//rules/private:distribution",
         "//toolchains/unittest:distribution",
     ] + glob(["*.bzl"]),

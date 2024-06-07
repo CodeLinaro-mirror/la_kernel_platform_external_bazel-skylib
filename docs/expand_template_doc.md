@@ -2,6 +2,7 @@
 
 A rule that performs template expansion.
 
+
 <a id="expand_template"></a>
 
 ## expand_template

@@ -1,11 +1,8 @@
 load("//:bzl_library.bzl", "bzl_library")
 
-package(
-    default_applicable_licenses = ["//:license"],
-    default_visibility = ["//visibility:public"],
-)
-
 licenses(["notice"])
+
+package(default_visibility = ["//visibility:public"])
 
 # export bzl files for the documentation
 exports_files(
@@ -21,11 +18,6 @@ bzl_library(
 bzl_library(
     name = "dicts",
     srcs = ["dicts.bzl"],
-)
-
-bzl_library(
-    name = "modules",
-    srcs = ["modules.bzl"],
 )
 
 bzl_library(
